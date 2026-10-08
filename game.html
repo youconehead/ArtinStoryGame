@@ -3,58 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js" defer></script>
-
+    <title>mystery game</title>
 </head>
 <body>
     <header>
-      <nav>
-            <ul> 
-                <li><a href="index.html">Home</a></li>
-            </ul>
-            <ul> 
-                <li><a href="game.html">Play the game</a></li>
-            </ul>
-            <ul> 
-                <li><a href="about.html">About the creator</a></li>
+        <h1>Mystery Game</h1>
+    </header>
+    <main>
+        <nav>
+            <ul>
+                <li><a href="game.html">Home</a></li>
+                <li><a href="about.html">About Page</a></li>
             </ul>
         </nav>
-    </header>
+        <article>
+            <h2>Page 1</h2> 
+            <p>context: Intro thing and context thing </p>
+        </article>
+        <figure>
+        <img src="meNoob.jpeg" width="150" alt="test">
+            <figcaption>
+                <p>this is a noob.</p>
+            </figcaption>
+        </figure>
+        <section>
+        <input type="radio" id="option1" name="decision" value="1">
+        <label for="option1">option1</label>
+        <input type="radio" id="option2" name="decision" value="2">
+        <label for="option2">option2</label>
+        <input type="radio" id="option3" name="decision" value="3">
+        <label for="option3">option3</label>
+        <p></p>
+            <label for="inv">Evidence</label>
+            <select name="item" id="inv">
+                <option>None</option>
+                <option value="Notes">Notes</option>
+                <option value="Evidence">Evidence</option>
+            </select>
+        <p></p>
+        <input type="submit" value="Next">
+        </section>
 
-    <main>
-    <header>
-        <h1 id="scene-title">  </h1>
-        <h2 id="character-name">  </h2>
-    </header>
-    
-    <section>
-    <p id="scene-text">     </p>
 
-    </section>
-
-    <section>
-        <div id="choices-container"> </div>
-    </section>   
-        
-    <section>
-        <p> Current HP:</p>
-        <ul>
-            <li id="health-display"> 100</li>
-        </ul>
-
-        <p> Inventory:</p>
-        <ul>
-            <li id="inventory-display"> </li>
-        </ul>
-
-        <p id="message-display"></p>
-    </section>
 
 
     </main>
-    <footer>
+     <footer>made by artin</footer>
 
-    </footer>
+
+
 </body>
 </html>
