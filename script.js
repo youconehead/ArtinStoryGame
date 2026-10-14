@@ -10,66 +10,99 @@
 // --------------------------------------------------
 
 // First, we create a variable for the current scene being displayed
-let currentScene = "backyard";
-
+let currentScene = "gym";
+let tutorialDone = false;
 // Then, we create an object that stores the data for each scene,
 const scenes = {
   // See "backyard" for the first example
-  backyard: {
-    title: "Location: Backyard",
-    character: "Interviewee:Grandma",
-    text: "Text: well what I remember happening is that Darcie went inside to play with her pretend kitchen, I heard her neighbor mention he was really hungry, and the dog ran around really quickly",
-    // you can choose how many choices to include
+  gym: {
+    title: "Abandoned School: Gym",
+    character: "Meet Trader",
+    text: `You wake up on a hard wood floor of a school’s gym. Broken glass shards and trashed equipment lay around you. You aren’t sure how you got here, but you recall passing out on a sidewalk.
+    <br></br>
+    A short, brown haired boy stares at you while you lie there.
+    <br></br>
+    “Hey you, you’re a newcomer here huh?”
+    <br></br>
+    “Welcome to the Endless Halls”
+    <br></br>
+    <b>“What is this place?”</b>
+    <br></br>
+    “A pretty much endless school; although it has some quirks”
+    <br></br>
+    <b>“Like what?”</b>
+    <br></br>
+    “As you noticed, everything is basically abandoned here, all the rooms and stuff are like damaged in random places.”
+    <br></br>
+    “Some of the rooms are pretty dim, so be careful”
+    <br></br>
+    “Anyway, if you want to see me then come to my shop, I could help you out if you need some guidance.”
+    <br></br>
+    “Oh I’m a Trader also.”
+    `,
+    
     // each choice can have text, an action, and/or nextScene
     choices: [
       {
-        text: "Chase after the dog (-10 HP)",
+        text: "Trader's Store",
         action: function () {
-          updateHealth(-10);
+         if (tutorialDone){
+          updateScene("trader");
+         }
+         else{
+          tutorialDone=true;
+          updateScene("tutorial");
+         }
+
         },
-        nextScene: "entrance"
       },
       {
-        text: "Ask about the neighbor",
+        text: "Talk to random man",
+        nextScene: "man"
+      },
+      {
+        text: "Explore outside the gym",
         nextScene: "hallway"
-      },
-      {
-          text: "Pick up the brass key",
-          action: function () {
-            pickUpItem("brass key");
-          },
-          nextScene: "hallway"
       }
     ]
   },
 
-  entrance: {
-    title: "Location: Entrance",
-    character: "Interviewee:Neighbor",
+  tutorial: {
+    title: "tutorial",
+    character: "",
     text: "well what I remember...",
     choices: [
       {
         text: "Ask about the dog",
-        nextScene: "backyard"
+        nextScene: "trader"
       },
          {
         text: "Ask about the neighbor",
-        nextScene: "hallway"
+        nextScene: "gym"
       }
     ]
   },
 
-  hallway: {
-    title: "The Hallway",
-    text: "The hallway is dark and silent.",
+  trader: {
+    title: "trader",
+    text: "heya",
     choices: [
       {
-        text: "backyard",
-        nextScene: "lockedDoor"
+        text: "gym",
+        nextScene: "gym"
       }
     ]
   },
-
+  man: {
+    title: "man",
+    text: "ello i am man.",
+    choices: [
+      {
+        text: "gym",
+        nextScene: "gym"
+      }
+    ]
+  },
    lockedDoor: {
     title: "The Locked Door",
     text: "The door handle doesn't move.",
@@ -124,7 +157,7 @@ function updateScene(sceneName) {
   // Here, for each html element, you change the textContent to match
   // the appropriate text from the scene object
   sceneTitle.textContent = scene.title;
-  sceneText.textContent = scene.text;
+  sceneText.innerHTML = scene.text;
   characterName.textContent = scene.character;
 
   // Clear the old buttons before creating new ones
@@ -165,19 +198,19 @@ updateScene(currentScene);
 // --------------------------------------------------
 
 // Create a variable for health
-let health = 100;
+let resources = 0;
 
 // Display current health
-const healthDisplay = document.getElementById("health-display");
+const resourcesDisplay = document.getElementById("resources-display");
 
 // Create a function to update health 
-function updateHealth(amount) {
-  health += amount;
-  healthDisplay.textContent = health;
+function updateResources(amount) {
+  resources += amount;
+  resourcesDisplay.textContent = resources;
 }
 
 // This refreshes the health display
-updateHealth(0);
+updateResources(0);
 
 // --------------------------------------------------
 // INVENTORY
