@@ -12,13 +12,16 @@
 // First, we create a variable for the current scene being displayed
 let currentScene = "gym";
 let tutorialDone = false;
+let manTalk = false;
 // Then, we create an object that stores the data for each scene,
 const scenes = {
   // See "backyard" for the first example
-  gym: {
+gym: { // GYM SECTION
     title: "Abandoned School: Gym",
     character: "Meet Trader",
-    text: `You wake up on a hard wood floor of a school’s gym. Broken glass shards and trashed equipment lay around you. You aren’t sure how you got here, but you recall passing out on a sidewalk.
+    text: `<img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg" width="300" alt="abandoned school">
+    <br></br>
+    You wake up on a hard wood floor of a school’s gym. Broken glass shards and trashed equipment lay around you. You aren’t sure how you got here, but you recall passing out on a sidewalk.
     <br></br>
     A short, brown haired boy stares at you while you lie there.
     <br></br>
@@ -58,7 +61,18 @@ const scenes = {
       },
       {
         text: "Talk to random man",
-        nextScene: "man"
+        action: function() {
+        if(!manTalk){
+          manTalk = true;
+          updateResources(25);
+          updateScene("man");
+        }
+        else{
+          updateScene("no");
+        }
+        },
+        
+        
       },
       {
         text: "Explore outside the gym",
@@ -68,41 +82,261 @@ const scenes = {
   },
 
   tutorial: {
-    title: "tutorial",
+    title: "Tutorial",
     character: "",
-    text: "well what I remember...",
+    text: `“Hello, this is a guide to the Endless Halls.”
+  <br></br>
+  “Be safe when you explore the halls, it’s less safe than in here.”
+  <br></br>
+  “...”
+  <br></br>
+  “Many people choose to camp around some of the rooms even though it’s dangerous out there.”
+  <br></br>
+  “You should get acquainted with some of them, and also collect resources. I sell things for the stuff you will bring me.”
+  <br></br>
+  “There are people who are going missing recently, maybe you could solve this mystery.”
+  `,
     choices: [
       {
-        text: "Ask about the dog",
-        nextScene: "trader"
+        text: "Go back",
+        nextScene: "gym"
       },
          {
-        text: "Ask about the neighbor",
-        nextScene: "gym"
+        text: "The store",
+        nextScene: "trader"
       }
     ]
   },
 
   trader: {
-    title: "trader",
-    text: "heya",
+    title: "Trader",
+    text: `“Hey! You tryin’ to buy something?”`,
     choices: [
       {
-        text: "gym",
+        text: "Buy something",
+        nextScene: "purchase"
+      },
+      {
+        text: "Accuse someone",
+        nextScene: "accuse"
+      },
+      {
+        text: "Go back",
         nextScene: "gym"
+      },
+    ]
+  },
+  purchase: {
+    title: "Purchase something",
+    text: "“What do you want to buy?”",
+    choices: [
+      {
+        text: "Clue",
+        nextScene: "clue1"
+      },
+      {
+        text: "Master Key (20 resources)",
+        action: function() {
+        if(resources >=20 ){
+          pickUpItem("Master Key");
+          updateScene("masterKey");
+          updateResources(-20);
+        }
+        else {
+          updateScene("cant");
+        }
+        },
+      },
+      {
+        text: "Go back",
+        nextScene: "trader"
+      },
+    ]
+  }, 
+  clue1: {
+    title: "Clue",
+    text: `“You should watch out for Skinny kid, he reeks of something foul.”
+    <br></br>
+    “The smell probably means something.”
+    "`,
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "purchase"
       }
     ]
   },
+  masterKey: {
+    title: "Master Key",
+    text: "You bought a master key.",
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "purchase"
+      }
+    ]
+  },
+  cant: {
+    title: "nope",
+    text: "you can't afford this",
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "purchase"
+      }
+    ]
+  }, 
+  accuse: { //for LATER
+    title: "Accuse Someone",
+    text: "wip",
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "trader"
+      }
+    ]
+  }, 
   man: {
-    title: "man",
-    text: "ello i am man.",
+    title: "Meet man",
+    text:  `“Whats good, I’m just a chillawg man who doesn’t do anything”
+    <br></br>
+    <b>“...”</b>
+    <br></br>
+    “Stop staring man, just take this and scram.”`,
+
     choices: [
       {
-        text: "gym",
+        text: "Go back",
+        
         nextScene: "gym"
       }
     ]
   },
+  no: {
+    title: "no",
+    text: "don't talk to me buddy",
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "gym"
+      }
+    ]
+  },
+  hallway: { // HALLWAY SECTION
+    title: "Hallway",
+    text: "You are in the hallway, there are many locations to walk to.",
+    choices: [
+      {
+        text: "Jock",
+        nextScene: "jock"
+      },
+      {
+        text: "Library",
+        nextScene: "library"
+      },
+      {
+        text: "Cafeteria",
+        nextScene: "cafeteria"
+      },
+      {
+        text: "Classroom",
+        nextScene: "classroom"
+      },
+      {
+        text: "More hallway",
+        nextScene: "moreHallway"
+      },
+      {
+        text: "Back to gym",
+        nextScene: "gym"
+      },
+    ]
+  }, 
+  jock: {
+    title: "",
+    text: "",
+    choices: [
+      {
+        text: "",
+        nextScene: ""
+      },
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      },
+    ]
+  },
+  library: {
+    title: "",
+    text: "",
+    choices: [
+      {
+        text: "",
+        nextScene: ""
+      },
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      }
+    ]
+  },
+  cafeteria: {
+    title: "",
+    text: "",
+    choices: [
+      {
+        text: "",
+        nextScene: ""
+      },
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      }
+    ]
+  },
+  classroom: {
+    title: "",
+    text: "",
+    choices: [
+      {
+        text: "",
+        nextScene: ""
+      },
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      }
+    ]
+  },
+  moreHallway: {
+    title: "",
+    text: "",
+    choices: [
+      {
+        text: "",
+        nextScene: ""
+      },
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      }
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    lockedDoor: {
     title: "The Locked Door",
     text: "The door handle doesn't move.",
@@ -122,7 +356,7 @@ const scenes = {
     title: "The solution",
     text: "You solved the mystery!",
     
-  }
+  },
 };
 
 // --------------------------------------------------
@@ -242,7 +476,7 @@ function pickUpItem(itemName) {
 
 // Create a function that checks if the inventory contains one item and if so shows the win condition scene.
 function unlockDoor() {
-  if (inventory.includes("brass key")) {
+  if (inventory.includes("Master Key")) {
     updateScene("solution");
   } else {
     messageDisplay.textContent = "The door is locked.";
