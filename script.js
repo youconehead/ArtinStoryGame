@@ -13,6 +13,7 @@
 let currentScene = "gym";
 let tutorialDone = false;
 let manTalk = false;
+let clueProgress = 1;
 // Then, we create an object that stores the data for each scene,
 const scenes = {
   // See "backyard" for the first example
@@ -64,7 +65,7 @@ gym: { // GYM SECTION
         action: function() {
         if(!manTalk){
           manTalk = true;
-          updateResources(25);
+          updateResources(10);
           updateScene("man");
         }
         else{
@@ -98,13 +99,13 @@ gym: { // GYM SECTION
   `,
     choices: [
       {
+        text: "The store",
+        nextScene: "trader"
+      },
+      {
         text: "Go back",
         nextScene: "gym"
       },
-         {
-        text: "The store",
-        nextScene: "trader"
-      }
     ]
   },
 
@@ -131,14 +132,35 @@ gym: { // GYM SECTION
     text: "“What do you want to buy?”",
     choices: [
       {
-        text: "Clue",
-        nextScene: "clue1"
+        text: "Buy one clue (5 resources)",
+        action: function(){
+        if(resources >= 5){
+          if(clueProgress==3){
+            updateScene("clue3");
+            updateResources(-5);
+            clueProgress=1;
+          }
+          else if(clueProgress==2){
+            updateScene("clue2");
+            updateResources(-5);
+            clueProgress=3;
+          }
+          else if(clueProgress==1){
+            updateScene("clue1");
+            updateResources(-5);
+            clueProgress=2;
+          }
+        }
+        else{
+          updateScene("cant");
+        }
+      }
       },
       {
         text: "Master Key (20 resources)",
         action: function() {
         if(resources >=20 ){
-          pickUpItem("Master Key");
+          pickUpItem("Master key");
           updateScene("masterKey");
           updateResources(-20);
         }
@@ -154,11 +176,43 @@ gym: { // GYM SECTION
     ]
   }, 
   clue1: {
-    title: "Clue",
-    text: `“You should watch out for Skinny kid, he reeks of something foul.”
+    title: "Clue 1",
+    text: `“You should watch out for Skinny kid, he goes by the cafeteria, and he reeks of something foul.”
     <br></br>
     “The smell probably means something.”
-    "`,
+    <br></br>
+    (2 more clues available)
+    `,
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "purchase"
+      }
+    ]
+  },
+  clue2: {
+    title: "Clue 2",
+    text: `“I don’t know, why is the Quiet kid always in there?”
+    <br></br>
+    “Are they hiding something?”
+    <br></br>
+    (1 more clue available)
+    `,
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "purchase"
+      }
+    ]
+  },
+  clue3: {
+    title: "Clue 3",
+    text: `“A customer walked to my store, he complained about some smell in the hallways.”
+    <br></br>
+    “That’s where Jock is usually at, but I’m not sure.”
+    <br></br>
+    (clue order resets)
+    `,
     choices: [
       {
         text: "Go back",
@@ -188,21 +242,82 @@ gym: { // GYM SECTION
   }, 
   accuse: { //for LATER
     title: "Accuse Someone",
-    text: "wip",
+    text: "“Wait, you mean you know who did it? Who?”",
     choices: [
+      {
+        text: "Jock",
+        nextScene: "badEnd"
+      },
+      {
+        text: "Quiet kid",
+        nextScene: "badEnd"
+      },
+      {
+        text: "Skinny kid",
+        nextScene: "badEnd"
+      },
+      {
+        text: "Guy",
+        nextScene: "badEnd"
+      },
+      {
+        text: "Man",
+        nextScene: "badEnd"
+      },
+      {
+        text: "Trader",
+        action: function(){
+          if(inventory.includes("Tracking list") && inventory.includes("Last words") && inventory.includes("Torn page")){
+            updateScene("neutralEnd");
+          }
+          else{
+            updateScene("nuhUh");
+          }
+        }
+      },
       {
         text: "Go back",
         nextScene: "trader"
       }
     ]
   }, 
+  badEnd: {
+    title: "Bad ending",
+    text: "You rat out the wrong student, and you are punished by being outcasted for eternity.",
+  },
+  nuhUh: {
+    title: "Trader",
+    text: `“Why would it be me? There is no evidence that it would be me.”
+    <br></br>
+    (trader is acting a little suspicious, i need to collect enough evidence... (3 required))
+    `,
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "accuse"
+      }
+    ]
+  },
+  neutralEnd: {
+    title: "Neutral ending",
+    text: `“Me..? And you have the evidence for it...”
+    <br></br>
+    He grabs his bag and runs into the halls.
+    <br></br>
+    Although nobody ever finds him, no more incidents happen after that.
+    <br></br>
+    Guess that was enough.
+    `,
+  },
   man: {
     title: "Meet man",
     text:  `“Whats good, I’m just a chillawg man who doesn’t do anything”
     <br></br>
     <b>“...”</b>
     <br></br>
-    “Stop staring man, just take this and scram.”`,
+    “Stop staring man, just take this and scram.”
+    <br></br>
+    (earned 10 Resources)`,
 
     choices: [
       {
@@ -252,14 +367,22 @@ gym: { // GYM SECTION
       },
     ]
   }, 
+  
   jock: {
-    title: "",
-    text: "",
+    title: "Jock",
+    text: `A tall black messy haired guy stands idly posing on a broken locker.
+    <br></br>
+    “Yo what’s up, you know that people are going missing?.”
+    <br></br>
+    <b>“I’ve heard.”</b>
+    <br></br>
+    “Yea, you know that it might be someone causing this?”
+    <br></br>
+    <b>“Hm.”</b>
+    <br></br>
+    “I’m suspicious of the people around here.”
+    `,
     choices: [
-      {
-        text: "",
-        nextScene: ""
-      },
       {
         text: "Go back",
         nextScene: "hallway"
@@ -267,62 +390,295 @@ gym: { // GYM SECTION
     ]
   },
   library: {
-    title: "",
-    text: "",
+    title: "Library",
+    text: `The library is surprisingly clean compared to the rest of the school. Most of the books remain neatly organized.
+    <br></br>
+    A black haired girl with reading glasses sits at a table examining a book.
+`,
     choices: [
       {
-        text: "",
-        nextScene: ""
+        text: "Approach quiet kid",
+        action: function(){
+          if(inventory.includes("Torn page")){
+            updateScene("YESquietKid");
+          }
+          else{
+            updateScene("NOquietKid");
+          }
+          
+        }
+      },
+      {
+        text: "Examine bookshelf ",
+        nextScene: "examine"
       },
       {
         text: "Go back",
         nextScene: "hallway"
+      },
+    ]
+  },
+  NOquietKid: {
+    title: "Quiet Kid doesnt't notice",
+    text: `You approach and the girl doesn’t notice you.
+    <br></br>
+    <b>“Hello?”</b>
+    <br></br>
+    “.....”
+    <br></br>
+    <b>“Alright then.”</b>
+    `,
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "library"
       }
     ]
   },
-  cafeteria: {
-    title: "",
-    text: "",
+  YESquietKid: {
+    title: "Quiet Kid notices",
+    text: `<b>“Hello? I found a ripped piece of paper.”</b>
+    <br></br>
+    “What? Did somebody cause problems in the library again?!”
+    <br></br>
+    <b>“How is this library so clean anyway?”</b>
+    <br></br>
+    “I make sure it’s clean all the time.”
+    <br></br>
+    <b>“Do you know anything about the missing people?”</b>
+    <br></br>
+    “No, I’m usually here by myself.”
+    `,
     choices: [
       {
-        text: "",
-        nextScene: ""
-      },
-      {
         text: "Go back",
-        nextScene: "hallway"
+        nextScene: "library"
       }
     ]
   },
-  classroom: {
-    title: "",
-    text: "",
+  examine: {
+    title: "Examine bookshelf",
+    text: "You see neatly placed books labeled in different genres. However, you notice a misaligned book with a piece of paper sticking out.",
     choices: [
       {
-        text: "",
-        nextScene: ""
+        text: "Take the book",
+        action: function() {
+          pickUpItem("Torn page");
+          updateScene("bookRecieve");
+      }
       },
       {
         text: "Go back",
-        nextScene: "hallway"
+        nextScene: "library"
       }
     ]
   },
-  moreHallway: {
-    title: "",
-    text: "",
+  bookRecieve: {
+    title: "Found",
+    text: `You grab a book and a piece of paper falls from it.
+    <br></br>
+    You read the piece…
+    <br></br>
+    “...someone is keeping track of us.”
+    <br></br>
+    “- Bud…”
+    <br></br>
+    The words end where it was ripped.
+    <br></br>
+    Maybe the quiet kid will say something with this.
+    <br></br>
+    (torn page received)
+    `,
     choices: [
       {
-        text: "",
-        nextScene: ""
-      },
-      {
         text: "Go back",
-        nextScene: "hallway"
+        nextScene: "library"
       }
     ]
   },
 
+  cafeteria: {
+    title: "Cafeteria",
+    text: `You enter the cafeteria and see some broken lunch tables and smashed counters.
+    <br></br>
+    You also see a thin skinny kid who is scavenging for food.
+    `,
+    choices: [
+      {
+        text: "Approach the skinny kid",
+        nextScene: "skinnyKid"
+      },
+      {
+        text: "Scavenge",
+        action: function(){
+          updateResources(3);
+        }
+      },
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      }
+    ]
+  },
+  skinnyKid: {
+    title: "Skinny Kid",
+    text: `“oh hey, didn’t see you there.”
+    <br></br>
+    <b>“What are you doing?”</b>
+    <br></br>
+    “Just looking for some scraps.”
+    <br></br>
+    <b>“What's that smell? It smells like something died.”</b>
+    <br></br>
+    “oh yeah, thats me.”
+`,
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "cafeteria"
+      }
+    ]
+  },
+  classroom: {
+    title: "Classroom",
+    text: "You enter a classroom and see a Guy sitting on a teachers desk.",
+    choices: [
+      {
+        text: "Approach",
+        nextScene: "guy"
+      },
+      {
+        text: "Scavenge",
+        action: function(){
+        pickUpItem("Tracking list");
+        updateScene("list")
+        }
+      },
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      }
+    ]
+  },
+  guy: {
+    title: "Guy",
+    text: `“Oh hey, you new here buddy?”
+    <br></br>
+    “I’m just chilling here”
+    <br></br>
+    “...”
+    <br></br>
+    “Are you looking for something?”
+    <br></br>
+    “Nothing much here except for paper scraps.”
+    `,
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "classroom"
+      }
+    ]
+  },
+  list: {
+    title: "Found",
+    text: `There's a bunch of random homework assignments about algebra… but you see a list that stands out.
+    <br></br>
+    <br></br>
+    <u>Student’s locations</u>
+    <br></br>
+    <s>Buddy (hallway)</s> <= <b>“Come to think of it, I haven't seen this guy at all. It has to be someone who keeps track of people, but who?”</b>
+    <br></br>
+    Jock (hallway)
+    <br></br>
+    Quiet Kid (library)
+    <br></br>
+    Skinny kid (cafeteria)
+    <br></br>
+    Guy (classroom)
+    <br></br>
+    Man (gym)
+    `,
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "classroom"
+      }
+    ]
+  },
+  moreHallway: {
+    title: "More hallway",
+    text: `You walk through the halls, avoiding the locker walls that lay on the floor.
+    <br></br>
+    The hallway is pretty cramped. 
+    <br></br>
+    Oh, but you see a boy run past complaining.
+    <br></br>
+    “Yo, it stinks over here! I think it’s coming from the janitor closet.”
+    `,
+    choices: [
+      {
+        text: "Open the janitor door",
+        action: function(){
+          if(inventory.includes("Master key")){
+            updateScene("open");
+            pickUpItem("Last words");
+          }
+          else{
+            updateScene("tried");
+          }
+        }
+      },
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      }
+    ]
+  },
+open: {
+    title: "Janitor closet",
+    text: `You use the key and turn the door knob to see a diseased person along with several notes.
+    <br></br>
+    ‘Someone kidnapped me and now im stuck in this closet’
+    <br></br>
+    ‘Don't know how, but they probably knew where I was going.’
+    <br></br>
+    ‘I knew somebody was tracking me, but I wasn’t able to explain it to the others in time.’
+    <br></br>
+    ‘farewell’
+    <br></br>
+    (Last words added to inventory)
+`,
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      }
+    ]
+  },
+tried: {
+    title: "nope",
+    text: "The door doesn’t budge, maybe you need to get a key.",
+    choices: [
+      {
+        text: "Go back",
+        nextScene: "moreHallway"
+      }
+    ]
+  },
+  placeholder: {
+    title: "",
+    text: "",
+    choices: [
+      {
+        text: "",
+        nextScene: ""
+      },
+      {
+        text: "Go back",
+        nextScene: "hallway"
+      }
+    ]
+  },
 
 
 
