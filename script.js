@@ -588,7 +588,7 @@ gym: { // GYM SECTION
     <br></br>
     <u>Student’s locations</u>
     <br></br>
-    <s>Buddy (hallway)</s> <= <b>“Come to think of it, I haven't seen this guy at all. It has to be someone who keeps track of people, but who?”</b>
+    <s style="color:red;">Buddy (hallway)</s> <= <b>“Come to think of it, I haven't seen this guy at all. It has to be someone who keeps track of people, but who?”</b>
     <br></br>
     Jock (hallway)
     <br></br>
