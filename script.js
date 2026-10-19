@@ -192,7 +192,7 @@ gym: { // GYM SECTION
   },
   clue2: {
     title: "Clue 2",
-    text: `“I don’t know, why is the Quiet kid always in there?”
+    text: `“Why is the Quiet kid always in the library?”
     <br></br>
     “Are they hiding something?”
     <br></br>
@@ -314,6 +314,8 @@ gym: { // GYM SECTION
     text:  `“Whats good, I’m just a chillawg man who doesn’t do anything”
     <br></br>
     <b>“...”</b>
+    <br></br>
+    “I don't know where anyone is at I'm doubtful that others know either.”
     <br></br>
     “Stop staring man, just take this and scram.”
     <br></br>
@@ -530,7 +532,7 @@ gym: { // GYM SECTION
     <br></br>
     <b>“What's that smell? It smells like something died.”</b>
     <br></br>
-    “oh yeah, thats me.”
+    “oh yeah, thats me, its just because of the rotten food here that people leave around.”
 `,
     choices: [
       {
