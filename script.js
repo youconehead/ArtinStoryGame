@@ -315,7 +315,7 @@ gym: { // GYM SECTION
     <br></br>
     <b>“...”</b>
     <br></br>
-    “I don't know where anyone is at I'm doubtful that others know either.”
+    “I don't know where anyone is at, and I'm doubtful that others know either.”
     <br></br>
     “Stop staring man, just take this and scram.”
     <br></br>
@@ -449,7 +449,7 @@ gym: { // GYM SECTION
     <br></br>
     <b>“Do you know anything about the missing people?”</b>
     <br></br>
-    “No, I’m usually here by myself.”
+    “No, I don't really see anyone around here.”
     `,
     choices: [
       {
