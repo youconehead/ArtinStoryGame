@@ -481,12 +481,13 @@ gym: { // GYM SECTION
     <br></br>
     You read the piece…
     <br></br>
-    “...someone is keeping track of us.”
+   <section style="background-color: white; color: black;"> “...someone is keeping track of us.”
     <br></br>
     “- Bud…”
     <br></br>
     The words end where it was ripped.
     <br></br>
+    </section>
     Maybe the quiet kid will say something with this.
     <br></br>
     (torn page received)
@@ -586,7 +587,7 @@ gym: { // GYM SECTION
     text: `There's a bunch of random homework assignments about algebra… but you see a list that stands out.
     <br></br>
     <br></br>
-    <u>Student’s locations</u>
+    <u><section style="background-color: white; color: black;">Student’s locations</u>
     <br></br>
     <s style="color:red;">Buddy (hallway)</s> <= <b>“Come to think of it, I haven't seen this guy at all. It has to be someone who keeps track of people, but who?”</b>
     <br></br>
@@ -599,6 +600,7 @@ gym: { // GYM SECTION
     Guy (classroom)
     <br></br>
     Man (gym)
+    </section>
     `,
     choices: [
       {
@@ -638,7 +640,7 @@ gym: { // GYM SECTION
   },
 open: {
     title: "Janitor closet",
-    text: `You use the key and turn the door knob to see a diseased person along with several notes.
+    text: `<section style="background-color: white; color: black;">You use the key and turn the door knob to see a diseased person along with several notes.
     <br></br>
     ‘Someone kidnapped me and now im stuck in this closet’
     <br></br>
@@ -647,8 +649,10 @@ open: {
     ‘I knew somebody was tracking me, but I wasn’t able to explain it to the others in time.’
     <br></br>
     ‘farewell’
+    </section>
     <br></br>
     (Last words added to inventory)
+    
 `,
     choices: [
       {
