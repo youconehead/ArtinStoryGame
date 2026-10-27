@@ -481,13 +481,13 @@ gym: { // GYM SECTION
     <br></br>
     You read the piece…
     <br></br>
-   <section style="background-color: white; color: black;"> “...someone is keeping track of us.”
+   <section class="note"> “...someone is keeping track of us.”
     <br></br>
     “- Bud…”
     <br></br>
+    </section>
     The words end where it was ripped.
     <br></br>
-    </section>
     Maybe the quiet kid will say something with this.
     <br></br>
     (torn page received)
@@ -587,7 +587,7 @@ gym: { // GYM SECTION
     text: `There's a bunch of random homework assignments about algebra… but you see a list that stands out.
     <br></br>
     <br></br>
-    <u><section style="background-color: white; color: black;">Student’s locations</u>
+    <u><section class="list">Student’s locations</u>
     <br></br>
     <s style="color:red;">Buddy (hallway)</s> <= <b>“Come to think of it, I haven't seen this guy at all. It has to be someone who keeps track of people, but who?”</b>
     <br></br>
