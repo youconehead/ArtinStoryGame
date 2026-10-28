@@ -20,8 +20,7 @@ const scenes = {
 gym: { // GYM SECTION
     title: "Abandoned School: Gym",
     character: "Meet Trader",
-    text: `<img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg" width="300" alt="abandoned school">
-    <br></br>
+    text: `
     You wake up on a hard wood floor of a school’s gym. Broken glass shards and trashed equipment lay around you. You aren’t sure how you got here, but you recall passing out on a sidewalk.
     <br></br>
     A short, brown haired boy stares at you while you lie there.
@@ -587,7 +586,7 @@ gym: { // GYM SECTION
     text: `There's a bunch of random homework assignments about algebra… but you see a list that stands out.
     <br></br>
     <br></br>
-    <u><section class="list">Student’s locations</u>
+    <u><section class="note" style="width:300px; height:400px;">Student’s locations</u>
     <br></br>
     <s style="color:red;">Buddy (hallway)</s> <= <b>“Come to think of it, I haven't seen this guy at all. It has to be someone who keeps track of people, but who?”</b>
     <br></br>
@@ -640,20 +639,20 @@ gym: { // GYM SECTION
   },
 open: {
     title: "Janitor closet",
-    text: `<section style="background-color: white; color: black;">You use the key and turn the door knob to see a diseased person along with several notes.
+    text: `You use the key and turn the door knob to see a diseased person along with several notes.
     <br></br>
+    <section class="note" style="width:300px; height:300px;">
     ‘Someone kidnapped me and now im stuck in this closet’
     <br></br>
     ‘Don't know how, but they probably knew where I was going.’
     <br></br>
-    ‘I knew somebody was tracking me, but I wasn’t able to explain it to the others in time.’
+    ‘I knew somebody was tracking me, but I wasn’t able to figure out who.’
     <br></br>
     ‘farewell’
     </section>
     <br></br>
     (Last words added to inventory)
-    
-`,
+    `,
     choices: [
       {
         text: "Go back",

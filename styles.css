@@ -1,33 +1,38 @@
 body{
-    background-color: black; color: white; font-family: Arial, sans-serif;
+    background-color: black; 
+    color: white; 
+    font-family: Arial, sans-serif;
+    
 }
 .note{
     background-color: white;
     width: 150px;
-    height: 100px;
+    height: 125px;
     color:black;
     padding: 10px;
     margin: 10px;
-    border-left: 5px rgb(200,200,200);
-    border-bottom: 5px rgb(200,200,200);
-
-}
-.list{
-    background-color: white;
-    width: 300px;
-    height: 400px;
-    color:black;
-    padding: 10px;
-    margin: 10px;
-    border-left: 5px rgb(200,200,200);
-    border-bottom: 5px rgb(200,200,200);
+    background-image: url('https://wallpaperaccess.com/full/2578765.jpg');
+    font-family: 'Comic Sans MS'
 }
 
-.heading{
+#heading{
     letter-spacing: 10px;
     border-bottom: dotted 3px;
+    text-align: center;
+    background-color: rgb(55, 55, 58);
+    align-content: center;
+    border-radius: 500px;
+    margin:10px;
 }
 #resources-display{
     background-color: rgb(101, 67, 33);
     width: fit-content;
+}
+#title{
+    margin: 10px;
+    text-align: center;
+    background-color: rgb(55, 55, 58);
+    align-content: center;
+    border-radius: 500px;
+    background-image: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg')
 }
