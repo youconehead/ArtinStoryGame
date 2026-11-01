@@ -20,6 +20,7 @@ const scenes = {
 gym: { // GYM SECTION
     title: "Abandoned School: Gym",
     character: "Meet Trader",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: `
     You wake up on a hard wood floor of a school’s gym. Broken glass shards and trashed equipment lay around you. You aren’t sure how you got here, but you recall passing out on a sidewalk.
     <br></br>
@@ -84,6 +85,7 @@ gym: { // GYM SECTION
   tutorial: {
     title: "Tutorial",
     character: "",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: `“Hello, this is a guide to the Endless Halls.”
   <br></br>
   “Be safe when you explore the halls, it’s less safe than in here.”
@@ -110,6 +112,7 @@ gym: { // GYM SECTION
 
   trader: {
     title: "Trader",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: `“Hey! You tryin’ to buy something?”`,
     choices: [
       {
@@ -128,6 +131,7 @@ gym: { // GYM SECTION
   },
   purchase: {
     title: "Purchase something",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: "“What do you want to buy?”",
     choices: [
       {
@@ -176,6 +180,7 @@ gym: { // GYM SECTION
   }, 
   clue1: {
     title: "Clue 1",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: `“You should watch out for Skinny kid, he goes by the cafeteria, and he reeks of something foul.”
     <br></br>
     “The smell probably means something.”
@@ -191,6 +196,7 @@ gym: { // GYM SECTION
   },
   clue2: {
     title: "Clue 2",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: `“Why is the Quiet kid always in the library?”
     <br></br>
     “Are they hiding something?”
@@ -206,6 +212,7 @@ gym: { // GYM SECTION
   },
   clue3: {
     title: "Clue 3",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: `“A customer walked to my store, he complained about some smell in the hallways.”
     <br></br>
     “That’s where Jock is usually at, but I’m not sure.”
@@ -221,6 +228,7 @@ gym: { // GYM SECTION
   },
   masterKey: {
     title: "Master Key",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: "You bought a master key.",
     choices: [
       {
@@ -231,6 +239,7 @@ gym: { // GYM SECTION
   },
   cant: {
     title: "nope",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: "you can't afford this",
     choices: [
       {
@@ -241,6 +250,7 @@ gym: { // GYM SECTION
   }, 
   accuse: { //for LATER
     title: "Accuse Someone",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: "“Wait, you mean you know who did it? Who?”",
     choices: [
       {
@@ -282,10 +292,12 @@ gym: { // GYM SECTION
   }, 
   badEnd: {
     title: "Bad ending",
+    background: "https://preview.redd.it/level-run-for-your-life-3d-model-will-be-released-in-3-5-v0-5sbs1rklrv8d1.png?width=1920&format=png&auto=webp&s=10bb1c2f15f78ed6459e6b66ad01a640f393858a",
     text: "You rat out the wrong student, and you are punished by being outcasted for eternity.",
   },
   nuhUh: {
     title: "Trader",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: `“Why would it be me? There is no evidence that it would be me.”
     <br></br>
     (trader is acting a little suspicious, i need to collect enough evidence... (3 required))
@@ -299,6 +311,7 @@ gym: { // GYM SECTION
   },
   neutralEnd: {
     title: "Neutral ending",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: `“Me..? And you have the evidence for it...”
     <br></br>
     He grabs his bag and runs into the halls.
@@ -310,6 +323,7 @@ gym: { // GYM SECTION
   },
   man: {
     title: "Meet man",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text:  `“Whats good, I’m just a chillawg man who doesn’t do anything”
     <br></br>
     <b>“...”</b>
@@ -330,6 +344,7 @@ gym: { // GYM SECTION
   },
   no: {
     title: "no",
+    background: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/abandoned-school-gymnasium-dylan-murphy.jpg",
     text: "don't talk to me buddy",
     choices: [
       {
@@ -340,6 +355,7 @@ gym: { // GYM SECTION
   },
   hallway: { // HALLWAY SECTION
     title: "Hallway",
+    background: "https://thumbs.dreamstime.com/b/abandoned-school-hallway-rows-old-lockers-long-dimly-lit-hallway-abandoned-school-building-lined-rows-367574151.jpg",
     text: "You are in the hallway, there are many locations to walk to.",
     choices: [
       {
@@ -371,6 +387,7 @@ gym: { // GYM SECTION
   
   jock: {
     title: "Jock",
+    background: "https://thumbs.dreamstime.com/b/abandoned-school-hallway-rows-old-lockers-long-dimly-lit-hallway-abandoned-school-building-lined-rows-367574151.jpg",
     text: `A tall black messy haired guy stands idly posing on a broken locker.
     <br></br>
     “Yo what’s up, you know that people are going missing?.”
@@ -392,6 +409,7 @@ gym: { // GYM SECTION
   },
   library: {
     title: "Library",
+    background: "https://img.freepik.com/premium-photo/library-filled-with-rows-neatly-organized-books-shelves_992134-75.jpg",
     text: `The library is surprisingly clean compared to the rest of the school. Most of the books remain neatly organized.
     <br></br>
     A black haired girl with reading glasses sits at a table examining a book.
@@ -420,7 +438,8 @@ gym: { // GYM SECTION
     ]
   },
   NOquietKid: {
-    title: "Quiet Kid doesnt't notice",
+    title: "Quiet Kid",
+    background: "https://img.freepik.com/premium-photo/library-filled-with-rows-neatly-organized-books-shelves_992134-75.jpg",
     text: `You approach and the girl doesn’t notice you.
     <br></br>
     <b>“Hello?”</b>
@@ -437,7 +456,8 @@ gym: { // GYM SECTION
     ]
   },
   YESquietKid: {
-    title: "Quiet Kid notices",
+    title: "Quiet Kid",
+    background: "https://img.freepik.com/premium-photo/library-filled-with-rows-neatly-organized-books-shelves_992134-75.jpg",
     text: `<b>“Hello? I found a ripped piece of paper.”</b>
     <br></br>
     “What? Did somebody cause problems in the library again?!”
@@ -459,6 +479,7 @@ gym: { // GYM SECTION
   },
   examine: {
     title: "Examine bookshelf",
+    background: "https://img.freepik.com/premium-photo/library-filled-with-rows-neatly-organized-books-shelves_992134-75.jpg",
     text: "You see neatly placed books labeled in different genres. However, you notice a misaligned book with a piece of paper sticking out.",
     choices: [
       {
@@ -476,6 +497,7 @@ gym: { // GYM SECTION
   },
   bookRecieve: {
     title: "Found",
+    background: "https://img.freepik.com/premium-photo/library-filled-with-rows-neatly-organized-books-shelves_992134-75.jpg",
     text: `You grab a book and a piece of paper falls from it.
     <br></br>
     You read the piece…
@@ -501,6 +523,7 @@ gym: { // GYM SECTION
 
   cafeteria: {
     title: "Cafeteria",
+    background: "https://thumbs.dreamstime.com/b/liminal-eerie-abandoned-restaurant-filled-scattered-trash-overturned-chairs-messy-tables-dark-deserted-atmosphere-422599424.jpg",
     text: `You enter the cafeteria and see some broken lunch tables and smashed counters.
     <br></br>
     You also see a thin skinny kid who is scavenging for food.
@@ -524,6 +547,7 @@ gym: { // GYM SECTION
   },
   skinnyKid: {
     title: "Skinny Kid",
+    background: "https://thumbs.dreamstime.com/b/liminal-eerie-abandoned-restaurant-filled-scattered-trash-overturned-chairs-messy-tables-dark-deserted-atmosphere-422599424.jpg",
     text: `“oh hey, didn’t see you there.”
     <br></br>
     <b>“What are you doing?”</b>
@@ -543,6 +567,7 @@ gym: { // GYM SECTION
   },
   classroom: {
     title: "Classroom",
+    background: "https://media.istockphoto.com/id/2219080099/photo/abandoned-classroom-interior-with-broken-desks-and-decayed-walls.jpg?s=612x612&w=0&k=20&c=dquweTMzj8lNWNptNmH1BATNcbcLiHBLULw4Zh594bE=",
     text: "You enter a classroom and see a Guy sitting on a teachers desk.",
     choices: [
       {
@@ -564,6 +589,7 @@ gym: { // GYM SECTION
   },
   guy: {
     title: "Guy",
+    background: "https://media.istockphoto.com/id/2219080099/photo/abandoned-classroom-interior-with-broken-desks-and-decayed-walls.jpg?s=612x612&w=0&k=20&c=dquweTMzj8lNWNptNmH1BATNcbcLiHBLULw4Zh594bE=",
     text: `“Oh hey, you new here buddy?”
     <br></br>
     “I’m just chilling here”
@@ -583,6 +609,7 @@ gym: { // GYM SECTION
   },
   list: {
     title: "Found",
+    background: "https://media.istockphoto.com/id/2219080099/photo/abandoned-classroom-interior-with-broken-desks-and-decayed-walls.jpg?s=612x612&w=0&k=20&c=dquweTMzj8lNWNptNmH1BATNcbcLiHBLULw4Zh594bE=",
     text: `There's a bunch of random homework assignments about algebra… but you see a list that stands out.
     <br></br>
     <br></br>
@@ -610,6 +637,7 @@ gym: { // GYM SECTION
   },
   moreHallway: {
     title: "More hallway",
+    background: "https://thumbs.dreamstime.com/b/abandoned-school-hallway-rows-old-lockers-long-dimly-lit-hallway-abandoned-school-building-lined-rows-367574151.jpg",
     text: `You walk through the halls, avoiding the locker walls that lay on the floor.
     <br></br>
     The hallway is pretty cramped. 
@@ -639,6 +667,7 @@ gym: { // GYM SECTION
   },
 open: {
     title: "Janitor closet",
+    background: "https://thumbs.dreamstime.com/b/old-janitor-closet-interior-features-rows-dusty-green-metal-lockers-worn-mops-floor-cleaning-machine-sits-center-grungy-395883953.jpg",
     text: `You use the key and turn the door knob to see a diseased person along with several notes.
     <br></br>
     <section class="note" style="width:300px; height:300px;">
@@ -662,6 +691,7 @@ open: {
   },
 tried: {
     title: "nope",
+    background: "https://thumbs.dreamstime.com/b/abandoned-school-hallway-rows-old-lockers-long-dimly-lit-hallway-abandoned-school-building-lined-rows-367574151.jpg",
     text: "The door doesn’t budge, maybe you need to get a key.",
     choices: [
       {
@@ -739,6 +769,8 @@ const sceneTitle = document.getElementById("scene-title");
 const sceneText = document.getElementById("scene-text");
 const choicesContainer = document.getElementById("choices-container");
 const characterName = document.getElementById("character-name");
+const titleBox = document.getElementById("title"); //my background banner is this
+
 
 // Then, we create a function to update the scene,
 function updateScene(sceneName) {
@@ -758,6 +790,8 @@ function updateScene(sceneName) {
   // Clear the old buttons before creating new ones
   choicesContainer.innerHTML = "";
 
+  
+  titleBox.style.backgroundImage = `url("${scene.background}")`;
   // Loop through each choice in the scene, connecting an action and nextScene if included
   scene.choices.forEach(function (choice) {
     const button = document.createElement("button");

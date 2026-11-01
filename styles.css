@@ -1,16 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rubik+Glitch&display=swap');
 body{
     background-color: black; 
     color: white; 
-    font-family: Arial, sans-serif;
-    font-size: large;
+    font-family: 'Archivo Black', system-ui;
 }
-.note{
+.note{ /*card class but renamed*/
     background-color: white;
     width: 150px;
     height: 125px;
     color:black;
     padding: 10px;
     margin: 10px;
+    border: 1px solid red;
     background-image: url('https://wallpaperaccess.com/full/2578765.jpg');
     font-family: 'Comic Sans MS'
 }
@@ -23,7 +24,8 @@ body{
     align-content: center;
     border-radius: 500px;
     margin:10px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Rubik Glitch', system-ui;
+    font-style: normal;
     font-size: x-large;
 }
 #resources-display{
